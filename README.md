@@ -58,6 +58,13 @@ npm i
 python -m pip install -r requirements-dev.txt
 ```
 
+Minor details on requirements:
+
+* **`lzma`**: In some Linux distros `lzma` is not installed by default. You can check whether you have it or not with `$ python -m lzma`. In Debian based systems you can fix that with `$ apt-get install liblzma-dev` but you mihght have to re-compile your Python.
+
+* **`elm-make`**: If `elm-make` is not available in your path, or if the `elm-make` version differs from [the one required by this project](packages.json), set [`ELM_MAKE_BIN`](https://github.com/cuducos/webassets-elm#requirements) environment variable pointing to where the proper `elm-make` binary is (probably `node_modules/.bin/elm-make`)
+* **`psycopg2`**: The `requirements.txt` file is prepared to use [PostgresSQL](https://www.postgresql.org) and `psycopg2` might fail if you don't have Postgres installed locally.
+
 ### Settings
 
 Copy `contrib/.env.sample` as `.env` in the project's root folder and adjust your settings. These are the main environment settings:
